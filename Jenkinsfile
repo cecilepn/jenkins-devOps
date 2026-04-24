@@ -4,7 +4,7 @@ pipeline {
   stages {
     stage('Install') {
       steps {
-        sh 'echo "hello world"' 
+        sh 'npm ci' 
       }
     }
   }
