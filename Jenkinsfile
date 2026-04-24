@@ -23,7 +23,8 @@ pipeline {
     }
     stage('build Docker image') {
       steps {
-          sh 'docker build -t jenkins/jenkins:lts'
+          sh 'docker build jenkins/jenkins:lts'
+          sh 'echo "Build OK"'
       }
     }
   }
