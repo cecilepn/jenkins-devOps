@@ -5,7 +5,17 @@ pipeline {
     stage('Install') {
       steps {
         sh 'npm ci' 
-      }
+      } 
+    }
+    stage('Lint test') {
+      steps {
+        sh 'npm lint' 
+      } 
+    }
+    stage('Test') {
+      steps {
+        sh 'npm test:coverage' 
+      } 
     }
   }
 }
