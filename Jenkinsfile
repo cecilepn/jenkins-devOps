@@ -23,9 +23,7 @@ pipeline {
     }
     stage('build Docker image') {
       steps {
-        script {
-          docker.build("jenkins-demo-app:latest", ".")
-        }
+          sh 'docker build -t jenkins/jenkins:lts'
       }
     }
   }
