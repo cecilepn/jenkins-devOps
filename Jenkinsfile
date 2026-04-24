@@ -7,7 +7,7 @@ pipeline {
         sh 'npm ci' 
       } 
     }
-    stage('Qualité'){
+    stage('Qualité') {
       parallel {
         stage('Lint') {
           steps {
@@ -21,5 +21,7 @@ pipeline {
         }
       }
     }
+    // faire un build docker de cette image en utilisant le chemin de l'hôte 
+    agent { dockerfile true } 
   }
 }
