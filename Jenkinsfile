@@ -3,7 +3,7 @@ pipeline {
 
   options {
     disableConcurrentBuilds() // interdit le fait de lancer ce job 2 fois en même temps 
-    parallelsAlwaysFailFast // dans un parallel, si un test échoue, tout s'arrête 
+    parallelsAlwaysFailFast() // dans un parallel, si un test échoue, tout s'arrête 
   }
 
   environment {
