@@ -9,12 +9,12 @@ pipeline {
     }
     stage('Lint test') {
       steps {
-        sh 'npm lint' 
+        sh 'npm run lint' 
       } 
     }
     stage('Test') {
       steps {
-        sh 'npm test:coverage' 
+        sh 'npm run test:coverage' 
       } 
     }
   }
