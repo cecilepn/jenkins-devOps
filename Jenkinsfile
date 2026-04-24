@@ -4,24 +4,29 @@ pipeline {
   stages {
     stage('Install') {
       steps {
-        sh 'npm ci' 
-      } 
+        sh 'npm ci'
+      }
     }
     stage('Qualité') {
       parallel {
         stage('Lint') {
           steps {
-            sh 'npm run lint' 
-          } 
+            sh 'npm run lint'
+          }
         }
         stage('Test') {
           steps {
-            sh 'npm run test:coverage' 
-          } 
+            sh 'npm run test:coverage'
+          }
         }
       }
     }
-    // faire un build docker de cette image en utilisant le chemin de l'hôte 
-    agent { dockerfile true } 
+    stage('build Docker image') {
+      steps {
+        script {
+          docker.build("jenkins-demo-app:latest", ".")
+        }
+      }
+    }
   }
 }
