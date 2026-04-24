@@ -7,14 +7,9 @@ pipeline {
         sh 'npm ci' 
       } 
     }
-    stage('Lint test') {
+    stage('Tests') {
       steps {
-        sh 'npm run lint' 
-      } 
-    }
-    stage('Test') {
-      steps {
-        sh 'npm run test:coverage' 
+        sh 'npm run lint && npm run test:coverage' 
       } 
     }
   }
